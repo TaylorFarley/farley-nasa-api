@@ -11,9 +11,6 @@ app.get('/', function (req, res) {
     res.render('index');
 })
 
-
-
-
 someFunction = (req, res) => {
     const x = process.env.API
     fetch('https://api.nasa.gov/planetary/apod?api_key='+x)
