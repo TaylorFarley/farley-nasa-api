@@ -12,19 +12,22 @@ app.get('/', function (req, res) {
 })
 
 someFunction = (req, res) => {
-
+let stat
     const x = process.env.API
     fetch('https://api.nasa.gov/planetary/apod?api_key=' + x)
         .then(result => {
+            stat = result.status
             return result.json()
+           
         })
         .then(data => {
+            console.log(stat)
             const foo = {
                 image: data.url,
                 descript: data.explanation,
             }
             var n = foo.image.includes('jpg')
-            if (n) {
+            if (n||stat!==200) {
                 res.send({
                     foo
                 });
