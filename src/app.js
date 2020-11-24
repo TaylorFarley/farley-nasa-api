@@ -26,8 +26,9 @@ let stat
                 image: data.url,
                 descript: data.explanation,
             }
-            var n = foo.image.includes('jpg')
-            if (n||stat!==200) {
+            
+         
+            if (data.code!==404 && foo.image!=undefined) {
                 res.send({
                     foo
                 });
