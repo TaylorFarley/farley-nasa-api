@@ -26,9 +26,10 @@ let stat
                 image: data.url,
                 descript: data.explanation,
             }
-            
-         
-            if (data.code!==404 && foo.image!=undefined) {
+       
+            let youtube = foo.image.includes('youtube')
+ 
+            if (data.code!==404 && foo.image!=undefined && youtube===false) {
                 res.send({
                     foo
                 });
